@@ -1,5 +1,5 @@
 # STORM
-##Introduction
+#Introduction
 
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self” movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
 
@@ -26,7 +26,7 @@ Valid GitHub URL
 
 At least one commit beyond the original fork
 
-##Valid SHA-1
+#Valid SHA-1
 
 SHA-1 corresponds to a specific commit
 
@@ -50,7 +50,7 @@ Panel plot comparing the average number of steps taken per 5-minute interval acr
 
 All of the R code needed to reproduce the results (numbers, plots, etc.) in the report
 
-##Assignment
+#Assignment
 
 This assignment will be described in multiple parts. You will need to write a report that answers the questions detailed below. Ultimately, you will need to complete the entire assignment in a single R markdown document that can be processed by knitr and be transformed into an HTML file.
 
@@ -101,7 +101,7 @@ Create a new factor variable in the dataset with two levels – “weekday” an
 
 Make a panel plot containing a time series plot (i.e. \color{red}{\verb|type = "l"|}type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-##Submitting the Assignment
+#Submitting the Assignment
 
 To submit the assignment:
 
