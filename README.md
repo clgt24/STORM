@@ -1,5 +1,5 @@
 # STORM
-ntroduction
+##Introduction
 
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self” movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
 
@@ -19,15 +19,14 @@ interval: Identifier for the 5-minute interval in which measurement was taken
 
 The dataset is stored in a comma-separated-value (CSV) file and there are a total of 17,568 observations in this dataset.
 
-Review criteria
-menos 
-Repo
+##Review criteria
+
 
 Valid GitHub URL 
 
 At least one commit beyond the original fork
 
-Valid SHA-1
+##Valid SHA-1
 
 SHA-1 corresponds to a specific commit
 
@@ -51,8 +50,8 @@ Panel plot comparing the average number of steps taken per 5-minute interval acr
 
 All of the R code needed to reproduce the results (numbers, plots, etc.) in the report
 
-Assignment
-menos 
+##Assignment
+
 This assignment will be described in multiple parts. You will need to write a report that answers the questions detailed below. Ultimately, you will need to complete the entire assignment in a single R markdown document that can be processed by knitr and be transformed into an HTML file.
 
 Throughout your report make sure you always include the code that you used to generate the output you present. When writing code chunks in the R markdown document, always use \color{red}{\verb|echo = TRUE|}echo = TRUE so that someone else will be able to read the code. This assignment will be evaluated via peer assessment so it is essential that your peer evaluators be able to review the code for your analysis.
@@ -102,8 +101,8 @@ Create a new factor variable in the dataset with two levels – “weekday” an
 
 Make a panel plot containing a time series plot (i.e. \color{red}{\verb|type = "l"|}type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
-Submitting the Assignment
-menos 
+##Submitting the Assignment
+
 To submit the assignment:
 
 Commit your completed \color{red}{\verb|PA1_template.Rmd|}PA1_template.Rmd file to the \color{red}{\verb|master|}master branch of your git repository (you should already be on the \color{red}{\verb|master|}master branch unless you created new ones)
@@ -125,3 +124,18 @@ Click on the “?? commits” link where ?? is the number of commits you have in
 You will see a list of commits that you have made to this repository. The most recent commit is at the very top. If this represents the version of the files you want to submit, then just click the “copy to clipboard” button on the right hand side that should appear when you hover over the SHA-1 hash. Paste this SHA-1 hash into the course web site when you submit your assignment. If you don't want to use the most recent commit, then go down and find the commit you want and copy the SHA-1 hash.
 
 A valid submission will look something like (this is just an example!)
+
+## Create new category based on the days of the week
+mergeData$DayCategory <- ifelse(mergeData$day %in% c("Saturday", "Sunday"), "Weekend", "Weekday")
+Make a panel plot containing a time series plot (i.e. type = “l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+
+library(lattice) 
+
+## Summarize data by interval and type of day
+intervalTable2 <- ddply(mergeData, .(interval, DayCategory), summarize, Avg = mean(steps))
+
+##Plot data in a panel plot
+xyplot(Avg~interval|DayCategory, data=intervalTable2, type="l",  layout = c(1,2),
+       main="Average Steps per Interval Based on Type of Day", 
+       ylab="Average Number of Steps", xlab="Interval")
+
